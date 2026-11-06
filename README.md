@@ -36,7 +36,7 @@ Die Joy-IT-Erweiterung läuft auf dem Calliope mini nicht zuverlässig. Gründe:
 - Warteschleife korrigiert
 - UID aus 4 Bytes, BCC wird geprüft, Ausgabe als Hex-String (`"21-C5-1C-1A"`)
 - Alle Funktionen nicht blockierend (`""`, `0` oder `false`, wenn kein Tag)
-- WUPA statt REQA: liegende Tags werden in jedem Zyklus erkannt, nicht nur in jedem zweiten
+- WUPA statt REQA mit zweitem Wake-Versuch: liegende Tags werden in jedem Zyklus erkannt, nicht nur in jedem zweiten (ein Tag in READY verwirft das erste Kommando, ISO 14443-3)
 - Pause nach Soft-Reset, HALT nach Lesen/Schreiben
 - Timer-Reload-Register korrekt adressiert (Original schrieb auf 0x2E statt 0x2C)
 - LED-Matrix wird nur abgeschaltet, wenn ein Pin auf C4–C12 liegt
