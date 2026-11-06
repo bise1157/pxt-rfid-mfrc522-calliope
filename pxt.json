@@ -1,6 +1,6 @@
 {
     "name": "pxt-rfid-mfrc522-calliope",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "MFRC522 RFID (Joy-IT SBC-RFID-RC522) für Calliope mini 1.x – Hardware-SPI an frei wählbaren Pins. Fork von joy-it/pxt-rfid-mfrc522.",
     "license": "MIT",
     "dependencies": {
