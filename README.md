@@ -63,6 +63,7 @@ Die Joy-IT-Erweiterung läuft auf dem Calliope mini nicht zuverlässig. Gründe:
 - C4–C12 teilen sich die Leitungen mit der LED-Matrix. Bei diesen Pins wird die Matrix automatisch abgeschaltet. RGB-LED und Sound funktionieren weiter.
 - Alternative ohne Matrix-Konflikt: die großen Pads P0–P3.
 - Meiden: C16/C17 (Grove A1, serielle Schnittstelle) und C18/C19 (I2C, Beschleunigungssensor).
+- **PWM nach `Init()` unzuverlässig:** Mit aktivem Hardware-SPI hat `pins.analogWritePin` auf P2/P3 im Test keine Wirkung mehr gezeigt, `pins.digitalWritePin` funktioniert. Vermutete Ursache: Ressourcenkonflikt auf dem nRF51 (PWM wird dort per Timer/PPI/GPIOTE emuliert), nicht abschließend geklärt. Für reines An/Aus `digitalWritePin` verwenden.
 
 ---
 
