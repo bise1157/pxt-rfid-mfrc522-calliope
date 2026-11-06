@@ -236,9 +236,13 @@ namespace MFRC522 {
         return isAck(toCard(PCD_TRANSCEIVE, withCRC(data16)))
     }
 
-    /** Wake + Antikollision; liefert 5 Bytes (UID + BCC) oder []. */
+    /**
+     * Wake + Antikollision; liefert 5 Bytes (UID + BCC) oder [].
+     * Ein Tag, der nach der letzten Antikollision noch in READY steht, verwirft das
+     * erste WUPA und fällt nach IDLE zurück (ISO 14443-3). Der zweite Versuch weckt ihn.
+     */
     function detect(): number[] {
-        if (!wakeTag()) return []
+        if (!wakeTag() && !wakeTag()) return []
         return anticoll()
     }
 
